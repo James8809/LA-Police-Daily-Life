@@ -3,18 +3,18 @@ class Truck extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame);
 
         scene.add.existing(this);
-        this.moveSpeed = 10;
+        this.moveSpeed = game.settings.startSpeed/2;
     }
 
     update() {
-        this.x -= this.moveSpeed;
-        if(this.x <= 0 - wEqual) {
+        this.x -= game.settings.startSpeed/2;
+        if(this.x <= 0 - wDivide) {
             this.reset();
         }
         
     }
 
     reset() {
-        this.x = game.config.width + wEqual;
+        this.x = game.config.width + wDivide;
     }
 }
