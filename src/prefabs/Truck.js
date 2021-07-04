@@ -3,7 +3,7 @@ class Truck extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame);
 
         scene.add.existing(this);
-        this.moveSpeed = wEqual;
+        this.moveSpeed = 10;
     }
 
     update() {

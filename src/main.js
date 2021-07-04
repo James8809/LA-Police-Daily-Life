@@ -6,13 +6,15 @@ let config = {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     
-    scene: [Play]
+    scene: [Menu, Help, Play]
 }
 
 let game = new Phaser.Game(config);
 
 let w = game.config.width;
 let h = game.config.height;
-let keyUP, keyDOWN;
+let keyUP, keyDOWN, keyH, keyESC, keyENTER;
 let wEqual = w/7;
 let hEqual = h/5;
+let borderUISize = w / 10;
+let borderPadding = borderUISize / 3;
