@@ -9,7 +9,7 @@ class Play extends Phaser.Scene{
     preload() {
         this.load.image('police', './assets/police.png');
         this.load.image('truck', './assets/truck.png');
-        this.load.image('highway', './assets/highway.png');
+        this.load.image('highway', './assets/Freeway.png');
     }
     create() {
         this.highway = this.add.tileSprite(0, 0, 1080, 600, 'highway').setOrigin(0, 0);
