@@ -3,16 +3,16 @@ class Police extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame);
 
         scene.add.existing(this);
-        this.moveSpeed = hEqual;
+        this.moveSpeed = hDivide;
     }
 
     update() {
-        if(Phaser.Input.Keyboard.JustDown(keyUP) && this.y >= hEqual){
+        if(Phaser.Input.Keyboard.JustDown(keyUP) && this.y >= hDivide){
             this.y -= this.moveSpeed;
             console.log(this.y, h);
         }
 
-        if(Phaser.Input.Keyboard.JustDown(keyDOWN) && this.y <= h - hEqual){
+        if(Phaser.Input.Keyboard.JustDown(keyDOWN) && this.y <= h - hDivide){
             this.y += this.moveSpeed;
             console.log(this.y, h);
         }
