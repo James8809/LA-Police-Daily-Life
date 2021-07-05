@@ -7,7 +7,7 @@ class Play extends Phaser.Scene{
 
     }
     preload() {
-        this.load.spritesheet('police', './assets/spritesheet(3).png',{
+        this.load.spritesheet('police', './assets/spritesheet.png',{
             frameWidth:105,
             frameHeight:59
         });
