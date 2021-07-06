@@ -7,7 +7,7 @@ class Menu extends Phaser.Scene{
 
     }
     preload() {
-        this.load.spritesheet('car driving', './assets/car sprite.png', {frameWidth: 50
+        this.load.spritesheet('car driving', './assets/car moving sprite.png', {frameWidth: 50
             , frameHeight: 400, startFrame: 0, endFrame: 20});
         this.load.audio('horn', './assets/horn.wav');
 
