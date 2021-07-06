@@ -42,8 +42,10 @@ class Play extends Phaser.Scene{
            // hideOnComplete: true
         //})
         this.p1Police.play('police_anim');
-
-        this.sound.play('audio_background')
+        backgroundMusic = game.add.audio('audio_background');
+        backgroundMusic.loop = true; 
+        backgroundMusic.play();
+        //this.sound.play('audio_background')
     }
     update() {
         this.highway.tilePositionX += game.settings.startSpeed;
