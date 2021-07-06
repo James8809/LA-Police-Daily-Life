@@ -7,7 +7,7 @@ class Play extends Phaser.Scene{
 
     }
     preload() {
-        this.load.spritesheet('p1Police', './assets/spritesheet.png',{
+         this.load.spritesheet('p1Police', './assets/spritesheet.png',{
             frameWidth:105,
             frameHeight:59
         });
@@ -28,6 +28,21 @@ class Play extends Phaser.Scene{
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
+        this.music = this.sound.add('audio_background');
+
+        var musicConfig = {
+            mute:false,
+            volume:1,
+            rate:1,
+            detune:0,
+            seek:0,
+            loop:false,
+            delay: 0
+
+        }
+       this.music.play(musicConfig);
+
+
         this.anims.create({
             key:"police_anim",
             frames: this.anims.generateFrameNumbers('p1Police'),
@@ -41,10 +56,10 @@ class Play extends Phaser.Scene{
            // repeat :0
            // hideOnComplete: true
         //})
+        
+
         this.p1Police.play('police_anim');
-        backgroundMusic = game.add.audio('audio_background');
-        backgroundMusic.loop = true; 
-        backgroundMusic.play();
+        
         //this.sound.play('audio_background')
     }
     update() {
@@ -55,6 +70,7 @@ class Play extends Phaser.Scene{
         this.truck3.update();
         this.truck4.update();
         this.truck5.update();
+        this.music.update();
 
         count++;
         if(count % 50 == 0) {
