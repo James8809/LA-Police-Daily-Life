@@ -7,7 +7,7 @@ class Help extends Phaser.Scene{
 
     }
     preload() {
-
+        this.load.audio('horn', './assets/horn.wav');
     }
     create() {
         let menuConfig = {
@@ -43,7 +43,9 @@ class Help extends Phaser.Scene{
     }
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyESC)) {
+            this.sound.play('horn');
             this.scene.start('menuScene');
+
         }
     }
 }

@@ -8,6 +8,7 @@ class Menu extends Phaser.Scene{
     }
     preload() {
         this.load.spritesheet('car driving', './assets/car sprite.png', {frameWidth: 600, frameHeight: 400, startFrame: 0, endFrame: 12} );
+        this.load.audio('horn', './assets/horn.wav');
 
     }
     create() {
@@ -45,9 +46,11 @@ class Menu extends Phaser.Scene{
     }
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyH)) {
+            this.sound.play('horn');
             this.scene.start('helpScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
+            this.sound.play('horn');
             this.scene.start('playScene');
             game.settings = {
                 startSpeed: 10,
