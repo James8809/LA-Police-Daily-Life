@@ -7,7 +7,8 @@ class Menu extends Phaser.Scene{
 
     }
     preload() {
-        this.load.spritesheet('car driving', './assets/car sprite.png', {frameWidth: 600, frameHeight: 400, startFrame: 0, endFrame: 12} );
+        this.load.spritesheet('car driving', './assets/car sprite.png', {frameWidth: 50
+            , frameHeight: 400, startFrame: 0, endFrame: 20});
         this.load.audio('horn', './assets/horn.wav');
 
     }
@@ -41,8 +42,10 @@ class Menu extends Phaser.Scene{
         this.anims.create({
             key: 'driving', 
             frames: this.anims.generateFrameNumbers('car driving',{start:0, end: 12, first: 0}), 
-            frameRate:30,
-            repeat: -1})
+            frameRate:10,
+            repeat: 100
+            })
+            this.add.sprite(w/2 - borderUISize*2 + borderPadding/2, h/2 + borderPadding * 4 ,'car driving').play('driving').setScale(2);
     }
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyH)) {
@@ -56,6 +59,5 @@ class Menu extends Phaser.Scene{
                 startSpeed: 10,
             }
         }
-        this.add.sprite(w/2 - borderUISize*2 + borderPadding/2, h/2 + borderPadding *4 ,'car driving').play('driving');
     }
 }
