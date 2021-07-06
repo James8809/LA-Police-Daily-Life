@@ -13,6 +13,8 @@ class Play extends Phaser.Scene{
         });
         this.load.image('truck', './assets/truck.png');
         this.load.image('highway', './assets/highway.png');
+
+        this.load.audio('audio_background', ['assets/background.wav'])
     }
     create() {
         this.highway = this.add.tileSprite(0, 0, 1080, 600, 'highway').setOrigin(0, 0);
@@ -40,6 +42,8 @@ class Play extends Phaser.Scene{
            // hideOnComplete: true
         //})
         this.p1Police.play('police_anim');
+
+        this.sound.play('audio_background')
     }
     update() {
         this.highway.tilePositionX += game.settings.startSpeed;
