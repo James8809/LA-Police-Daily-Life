@@ -11,10 +11,12 @@ class Help extends Phaser.Scene{
     }
     create() {
         let menuConfig = {
-            fontFamily: 'Atari',
+            fontFamily: 'Georgia',
             fontSize: '35px',
-            backgroundColor: '#58D68D',
-            color:'#000000',
+            backgroundColor: '#FDFFD5',
+            stroke: '8178B9',
+            strokeThickness: 2,
+            color:'#C18468',
             padding: {
                 top: 5,
                 bottom: 5,
@@ -24,7 +26,7 @@ class Help extends Phaser.Scene{
 
         // setting up a camera cause I want to change the background color
         var camera = this.cameras.main;        
-        this.cameras.main.setBackgroundColor('#16D4EE');
+        this.cameras.main.setBackgroundColor('#FA9A75');
 
         // menu text
         this.add.text(borderPadding, borderPadding/2,
