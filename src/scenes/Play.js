@@ -12,8 +12,7 @@ class Play extends Phaser.Scene{
             frameHeight:59
         });
         this.load.image('truck', './assets/truck.png');
-        this.load.image('highway', './assets/highway.png');
-
+        this.load.image('highway', './assets/Freeway.png');
         this.load.audio('audio_background', ['assets/background.wav'])
     }
     create() {
