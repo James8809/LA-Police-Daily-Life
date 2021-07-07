@@ -1,20 +1,19 @@
-class Police extends Phaser.GameObjects.Sprite {
+class Police extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
 
         scene.add.existing(this);
-        this.moveSpeed = hDivide;
+        scene.physics.add.existing(this);
+        this.moveSpeed = 10;
     }
 
     update() {
-        if(Phaser.Input.Keyboard.JustDown(keyUP) && this.y >= hDivide){
+        if(keyUP.isDown && this.y >= 0 + this.moveSpeed) {
             this.y -= this.moveSpeed;
-            console.log(this.y, h);
         }
 
-        if(Phaser.Input.Keyboard.JustDown(keyDOWN) && this.y <= h - hDivide){
+        if(keyDOWN.isDown && this.y + policeHeight <= h) {
             this.y += this.moveSpeed;
-            console.log(this.y, h);
         }
     }
 }
