@@ -7,7 +7,6 @@ class Play extends Phaser.Scene{
 
     }
     preload() {
-        this.load.image('police', './assets/police.png');
         this.load.image('truck', './assets/truck_copy.png');
         this.load.image('highway', './assets/Freeway.png');
         this.load.spritesheet('p1Police', './assets/spritesheet.png',{
@@ -27,7 +26,7 @@ class Play extends Phaser.Scene{
         this.highway = this.add.tileSprite(0, 0, 1080, 600, 'highway').setOrigin(0, 0);
         var inZone = false;
         this.gamerOver = false;
-        this.p1Police = new Police(this, 10, 18.5, 'police').setOrigin(0,0);
+        this.p1Police = new Police(this, 10, 18.5).setOrigin(0,0);
         this.addTruck();
         this.physics.add.overlap(this.p1Police, this.truck1, function () {
             inZone = true;
