@@ -45,6 +45,7 @@ class Help extends Phaser.Scene{
         if (Phaser.Input.Keyboard.JustDown(keyESC)) {
             this.sound.play('horn');
             this.scene.start('menuScene');
+
         }
     }
 }
