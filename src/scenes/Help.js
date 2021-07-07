@@ -31,14 +31,14 @@ class Help extends Phaser.Scene{
         // menu text
         this.add.text(borderPadding, borderPadding/2,
             "Press ESC button to return to start Menu", menuConfig).setOrigin(0,0);
-        this.add.text(w/2 - borderPadding*2 - borderPadding/2, h/2 - borderUISize*2 + borderPadding/2,
-            "Instructions~", menuConfig).setOrigin(0,0);
-        this.add.text(w/2 - borderUISize*2 - borderPadding, h/2 - borderUISize,
-            "Use ↑ arrow to move police car up", menuConfig).setOrigin(0,0);
-        this.add.text(w/2 - borderUISize*2 - borderPadding, h/2 -borderPadding,
-            "Use ↓ arrow to move police car down", menuConfig).setOrigin(0,0);
-        this.add.text(w/2 - borderUISize*2 - borderPadding*3, h/2 + borderPadding,
-            "Try to avoid truck while you are chasing thief!", menuConfig).setOrigin(0,0);
+        this.add.text(w/2, h/2 - borderUISize*2 + borderPadding/2,
+            "Instructions~", menuConfig).setOrigin(0.5,0);
+        this.add.text(w/2, h/2 - borderUISize,
+            "Use ↑ arrow to move police car up", menuConfig).setOrigin(0.5,0);
+        this.add.text(w/2, h/2 -borderPadding,
+            "Use ↓ arrow to move police car down", menuConfig).setOrigin(0.5,0);
+        this.add.text(w/2, h/2 + borderPadding,
+            "Try to avoid truck while you are chasing thief!", menuConfig).setOrigin(0.5,0);
         keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     }
     update() {

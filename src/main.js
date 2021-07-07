@@ -5,7 +5,9 @@ let config = {
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    
+    physics: {
+        default: 'arcade'
+    },
     scene: [Menu, Help, Play]
 }
 
@@ -18,8 +20,8 @@ let wDivide = w/7;
 let hDivide = h/5;
 let borderUISize = w / 10;
 let borderPadding = borderUISize / 3;
-let truckHeight = 80;
-let policeHeight = 83;
+let truckHeight = 76;
+let policeHeight = 59;
 let policeMargin = (hDivide - policeHeight)/2;
 let truckMargin = (hDivide - truckHeight)/2; 
 let count = 0;
