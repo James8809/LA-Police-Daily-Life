@@ -25,3 +25,4 @@ let policeHeight = 59;
 let policeMargin = (hDivide - policeHeight)/2;
 let truckMargin = (hDivide - truckHeight)/2; 
 let count = 0;
+// comment

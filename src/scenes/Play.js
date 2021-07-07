@@ -14,6 +14,12 @@ class Play extends Phaser.Scene{
             frameWidth:105,
             frameHeight:59
         });
+        this.load.image('truck', './assets/truck_copy.png');
+        this.load.image('highway', './assets/Freeway.png');
+        this.load.spritesheet('p1Police', './assets/spritesheet.png',{
+            frameWidth:105,
+            frameHeight:59
+        });
         this.load.audio('audio_background', ['assets/background.wav'])
     }
     create() {
@@ -25,6 +31,7 @@ class Play extends Phaser.Scene{
         });
 
         this.highway = this.add.tileSprite(0, 0, 1080, 600, 'highway').setOrigin(0, 0);
+
         var inZone = false;
         this.gamerOver = false;
         this.p1Police = new Police(this, 10, 18.5).setOrigin(0,0);
@@ -48,6 +55,7 @@ class Play extends Phaser.Scene{
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
         this.music = this.sound.add('audio_background');
+
         var musicConfig = {
             mute:false,
             volume:1,
@@ -78,6 +86,7 @@ class Play extends Phaser.Scene{
         if(this.inZone) {
             this.gamerOver = true;
             console.log("touch");
+
         }
         
         this.inZone = false;
