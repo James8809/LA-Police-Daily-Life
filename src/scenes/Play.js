@@ -7,12 +7,7 @@ class Play extends Phaser.Scene{
 
     }
     preload() {
-        this.load.image('truck', './assets/truck_copy.png');
-        this.load.image('highway', './assets/Freeway.png');
-        this.load.spritesheet('p1Police', './assets/spritesheet.png',{
-            frameWidth:105,
-            frameHeight:59
-        });
+        // trying
         this.load.image('truck', './assets/truck_copy.png');
         this.load.image('highway', './assets/Freeway.png');
         this.load.spritesheet('p1Police', './assets/spritesheet.png',{
