@@ -7,7 +7,6 @@ class Help extends Phaser.Scene{
 
     }
     preload() {
-        this.load.audio('horn', './assets/horn.wav');
     }
     create() {
         let menuConfig = {
@@ -39,11 +38,13 @@ class Help extends Phaser.Scene{
             "Use ↓ arrow to move police car down", menuConfig).setOrigin(0.5,0);
         this.add.text(w/2, h/2 + borderPadding,
             "Try to avoid truck while you are chasing thief!", menuConfig).setOrigin(0.5,0);
+        this.add.text(w/2, h/2 + borderPadding*3,
+            "Also... do not press button F during chase... ", menuConfig).setOrigin(0.5,0);
         keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
     }
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyESC)) {
-            this.sound.play('horn');
+            this.sound.play('select');
             this.scene.start('menuScene');
 
         }

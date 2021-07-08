@@ -13,6 +13,7 @@
 // we really like what we did for the police car and truck but couldn't 
 // really add more since we dont have time left. we had a great idea of 
 // having to player chase thief as a police but couldn't finish in time :(
+// oh also we added a kind of funny feature so try to find it if you can haha
 let config = {
     type: Phaser.CANVAS,
     width: 1050,
@@ -30,7 +31,7 @@ let game = new Phaser.Game(config);
 
 let w = game.config.width;
 let h = game.config.height;
-let keyUP, keyDOWN, keyH, keyESC, keyENTER;
+let keyUP, keyDOWN, keyH, keyESC, keyENTER, keyF;
 let wDivide = w/7;
 let hDivide = h/5;
 let borderUISize = w / 10;

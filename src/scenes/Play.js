@@ -14,11 +14,12 @@ class Play extends Phaser.Scene{
             frameWidth:105,
             frameHeight:59
         });
-        this.load.spritesheet('truckAnim', './assets/spritesheet_10.png',{
-            frameWidth:201,
-            frameHeight:76,
+        this.load.spritesheet('truckAnim', './assets/truck_final_spritesheet_2.png',{
+            frameWidth:204.25,
+            frameHeight:80,
         });
-        this.load.audio('audio_background', ['assets/background.wav'])
+        this.load.audio('audio_background', ['assets/background.wav']);
+        this.load.audio('horn', ['assets/horn.wav'])
     }
     create() {
         this.physics.world.setBounds(0, 0, 1050, 600);
@@ -32,9 +33,7 @@ class Play extends Phaser.Scene{
         });
 
         this.highway = this.add.tileSprite(0, 0, 3000, 600, 'highway').setOrigin(0, 0);
-        console.log(this.gameOver);
         this.gameOver = false;
-        console.log(this.gameOver, "second");
         this.p1Police = new Police(this, 10, 18.5,'police').setOrigin(0,0);
         //this.p2Police = new Police(this, w/2, truckMargin + 360, 'police').setOrigin(0,0);
         
@@ -55,6 +54,7 @@ class Play extends Phaser.Scene{
          
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
 
         music = this.sound.add('audio_background');
         //music.setLoop(true);
@@ -72,7 +72,6 @@ class Play extends Phaser.Scene{
         */
         //this.music.play(musicConfig);
         var spawn = true;
-        console.log("version4");
         this.physics.add.overlap(this.p1Police,this.truckGroup,this.crash,null,this);
         //let front;
     }
@@ -100,6 +99,10 @@ class Play extends Phaser.Scene{
         if(!this.gameOver) {
             this.highway.tilePositionX += game.settings.startSpeed;
             this.p1Police.update();
+            if(Phaser.Input.Keyboard.JustDown(keyF)) {
+                this.sound.play("horn");   // play sfx
+                game.settings.fired = true;
+            }
             /*
             here i was trying to get truckgroup elements and access its x and y
             properties so I can implement some if statements for thief(p2) to

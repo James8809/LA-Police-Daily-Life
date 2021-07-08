@@ -7,10 +7,8 @@ class Menu extends Phaser.Scene{
 
     }
     preload() {
-        this.load.spritesheet('car driving', './assets/car sprite.png', {
-            frameWidth: 60, frameHeight: 45
-        });
-        this.load.audio('horn', './assets/horn.wav');
+        this.load.audio('select', './assets/select.wav');
+        this.load.image('car', './assets/policeNormal.png');
     }
     create() {
         let menuConfig = {
@@ -37,28 +35,24 @@ class Menu extends Phaser.Scene{
             "Press Enter to start your day as a police!", menuConfig).setOrigin(0.5,0);
         let text3 = this.add.text(w/2, h/2 + borderPadding,
             "Press button H for instructions(Noob!)", menuConfig).setOrigin(0.5,0);
+        this.add.sprite(w/2 + 10, h/2 + borderPadding*5, 'car').setOrigin(0.5,0.5);
+        console.log("change4");
         keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
-        this.anims.create({
-            key: 'driving', 
-            frames: this.anims.generateFrameNumbers('car driving'), 
-            frameRate:10,
-            repeat: -1
-        })
         
-        //this.add.sprite(w/2, h/2 + borderPadding *4 ,'car driving').play('driving');
     }
     update() {
         if (Phaser.Input.Keyboard.JustDown(keyH)) {
-            this.sound.play('horn');
+            this.sound.play('select');
             this.scene.start('helpScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
-            this.sound.play('horn');
+            this.sound.play('select');
             this.scene.start('playScene');
             game.settings = {
                 startSpeed: 10,
-                carSpeed: 10
+                carSpeed: 10,
+                fired: false
             }
         }
     }
