@@ -12,7 +12,7 @@ class Police extends Phaser.Physics.Arcade.Sprite {
             this.y -= this.moveSpeed;
         }
 
-        if(keyDOWN.isDown && this.y + policeHeight <= h) {
+        if(keyDOWN.isDown && this.y + 100 <= h) {
             this.y += this.moveSpeed;
         }
     }
