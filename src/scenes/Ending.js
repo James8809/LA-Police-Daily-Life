@@ -7,10 +7,6 @@ class Ending extends Phaser.Scene{
 
     }
     preload() {
-        this.load.spritesheet('car driving', './assets/car sprite.png', {
-            frameWidth: 60, frameHeight: 45
-        });
-        this.load.audio('horn', './assets/horn.wav');
     }
     create() {
         let menuConfig = {

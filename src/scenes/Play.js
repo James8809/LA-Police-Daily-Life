@@ -10,9 +10,13 @@ class Play extends Phaser.Scene{
         this.load.image('truck', './assets/truck_copy.png');
         this.load.image('highway', './assets/new_Freeway.png');
         this.load.image('police', './assets/police.png');
-        this.load.spritesheet('p1Police', './assets/spritesheet.png',{
+        this.load.spritesheet('policeAnim', './assets/spritesheet.png',{
             frameWidth:105,
             frameHeight:59
+        });
+        this.load.spritesheet('truckAnim', './assets/truck_spritesheet.png',{
+            frameWidth:199,
+            frameHeight:76,
         });
         this.load.audio('audio_background', ['assets/background.wav'])
     }
@@ -24,15 +28,24 @@ class Play extends Phaser.Scene{
             runChildUpdate: true
         });
 
+        this.time.delayedCall(2500, () => { 
+            this.addTruck(); 
+        });
+
         this.highway = this.add.tileSprite(0, 0, 3000, 600, 'highway').setOrigin(0, 0);
 
         this.gamerOver = false;
         this.p1Police = new Police(this, 10, 18.5,'police').setOrigin(0,0);
-        this.addTruck();
         
         this.anims.create({
             key:"police_anim",
-            frames: this.anims.generateFrameNumbers('p1Police'),
+            frames: this.anims.generateFrameNumbers('policeAnim'),
+            framerate:20,
+            repeat: -1
+        });
+        this.anims.create({
+            key:"truck_anim",
+            frames: this.anims.generateFrameNumbers('truckAnim'),
             framerate:20,
             repeat: -1
         });
@@ -68,6 +81,8 @@ class Play extends Phaser.Scene{
         } 
         let truck1 = new Truck(this, w, truckMargin + 120*laneChoose, 'truck').setOrigin(0,0);
         let truck2 = new Truck(this, w, truckMargin + 120*laneChoose2, 'truck').setOrigin(0,0);
+        truck1.play('truck_anim');
+        truck2.play('truck_anim');
         truck1.spawn = true;
         this.truckGroup.add(truck1);
         this.truckGroup.add(truck2);
