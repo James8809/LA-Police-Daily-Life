@@ -34,9 +34,9 @@ class Menu extends Phaser.Scene{
         let text1 = this.add.text(w/2, h/2 - borderUISize - borderPadding,
             "LA Police Daily Life", menuConfig).setOrigin(0.5,0);
         let text2 = this.add.text(w/2, h/2 - borderPadding,
-            "Press Enter to start your day!", menuConfig).setOrigin(0.5,0);
+            "Press Enter to start your day as a police!", menuConfig).setOrigin(0.5,0);
         let text3 = this.add.text(w/2, h/2 + borderPadding,
-            "Press button H for instructions", menuConfig).setOrigin(0.5,0);
+            "Press button H for instructions(Noob!)", menuConfig).setOrigin(0.5,0);
         keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
         this.anims.create({

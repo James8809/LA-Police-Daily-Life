@@ -30,32 +30,21 @@ class Ending extends Phaser.Scene{
         let text1 = this.add.text(w/2, h/2 - borderUISize - borderPadding,
             "LA Police Daily Life", menuConfig).setOrigin(0.5,0);
         let text2 = this.add.text(w/2, h/2 - borderPadding,
-            "Press Enter to start your day!", menuConfig).setOrigin(0.5,0);
+            "Unfortunately you have crashed....", menuConfig).setOrigin(0.5,0);
         let text3 = this.add.text(w/2, h/2 + borderPadding,
-            "Press button H for instructions", menuConfig).setOrigin(0.5,0);
-        keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
+            "The good thing is the thief only stoled a bread!", menuConfig).setOrigin(0.5,0);
+        let text4 = this.add.text(w/2, h/2 + borderPadding*3,
+            ".......what? ", menuConfig).setOrigin(0.5,0);
+            
+        let text5 = this.add.text(borderPadding, borderPadding/2,
+            "Press Enter to start your horrible life again....", menuConfig).setOrigin(0,0);
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
-        this.anims.create({
-            key: 'driving', 
-            frames: this.anims.generateFrameNumbers('car driving'), 
-            frameRate:10,
-            repeat: -1
-        })
         
-        //this.add.sprite(w/2, h/2 + borderPadding *4 ,'car driving').play('driving');
     }
     update() {
-        if (Phaser.Input.Keyboard.JustDown(keyH)) {
-            this.sound.play('horn');
-            this.scene.start('helpScene');
-        }
         if (Phaser.Input.Keyboard.JustDown(keyENTER)) {
             this.sound.play('horn');
-            this.scene.start('playScene');
-            game.settings = {
-                startSpeed: 10,
-                carSpeed: 10
-            }
+            this.scene.start('menuScene');
         }
     }
 }
