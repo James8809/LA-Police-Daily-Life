@@ -9,7 +9,8 @@ class Play extends Phaser.Scene{
     preload() {
         // trying
         this.load.image('truck', './assets/truck_copy.png');
-        this.load.image('highway', './assets/Freeway.png');
+        this.load.image('highway', './assets/new_Freeway.png');
+        this.load.image('police', './assets/police.png');
         this.load.spritesheet('p1Police', './assets/spritesheet.png',{
             frameWidth:105,
             frameHeight:59
@@ -24,19 +25,16 @@ class Play extends Phaser.Scene{
             runChildUpdate: true
         });
 
-        this.highway = this.add.tileSprite(0, 0, 1080, 600, 'highway').setOrigin(0, 0);
+        this.highway = this.add.tileSprite(0, 0, 3000, 600, 'highway').setOrigin(0, 0);
 
         var inZone = false;
         this.gamerOver = false;
-        this.p1Police = new Police(this, 10, 18.5).setOrigin(0,0);
+        this.p1Police = new Police(this, 10, 18.5,'police').setOrigin(0,0);
         this.addTruck();
         this.physics.add.overlap(this.p1Police, this.truck1, function () {
             inZone = true;
         });
         
-        this.physics.add.collider(this.p1Police, this.truck1, function () {
-            inZone = true;
-        });
         this.anims.create({
             key:"police_anim",
             frames: this.anims.generateFrameNumbers('p1Police'),
@@ -51,7 +49,7 @@ class Play extends Phaser.Scene{
         this.music = this.sound.add('audio_background');
 
         var musicConfig = {
-            mute:false,
+            mute:true,
             volume:1,
             rate:1,
             detune:0,
@@ -61,11 +59,21 @@ class Play extends Phaser.Scene{
 
         }
         this.music.play(musicConfig);
+        var spawn = true;
+        console.log("version4");
+        this.physics.add.overlap(this.p1Police,this.truckGroup,this.crash,null,this);
     }
     addTruck() {
         let laneChoose =  Phaser.Math.Between(0, 4);
+        let laneChoose2 = Phaser.Math.Between(0, 4);
+        while(laneChoose2 == laneChoose) {
+            laneChoose2 = Phaser.Math.Between(0, 4);
+        } 
         let truck = new Truck(this, w, truckMargin + 120*laneChoose, 'truck').setOrigin(0,0);
+        let truck2 = new Truck(this, w, truckMargin + 120*laneChoose2, 'truck').setOrigin(0,0);
         this.truckGroup.add(truck);
+        this.truckGroup.add(truck2);
+        
     }
     update() {
         if(!this.gameOver) {
@@ -73,18 +81,26 @@ class Play extends Phaser.Scene{
             this.p1Police.update();
             
             count++;
-            if (count % 10 == 0 && game.settings.startSpeed < 30) {
-                game.settings.startSpeed += 1;
+            if (count % 10 == 0 && game.settings.startSpeed < 50) {
+                game.settings.startSpeed += 0.05;
+                game.settings.carSpeed += 1;
             }
+            //this.physics.add.overlap(this.p1Police,this.truckGroup,this.crash,null,this);
         }
-        if(this.inZone) {
-            this.gamerOver = true;
-            console.log("touch");
 
+        let trucks = this.truckGroup.getChildren();
+        //console.log(this.truckGroup.getChildren());
+        console.log(this.truckGroup.getChildren([0]));
+        if (this.spawn2 && this.truck1.x < w/2) {
+            this.spawn2 = false;
+            this.addTruck();
         }
-        
-        this.inZone = false;
+
     }
-    
+    crash() {
+        this.gameOver = true;
+        
+        this.truckGroup.runChildUpdate = false;
+    }
     
 }
