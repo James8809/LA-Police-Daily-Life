@@ -8,7 +8,7 @@ let config = {
     physics: {
         default: 'arcade'
     },
-    scene: [Menu, Help, Play]
+    scene: [Menu, Help, Play, Ending]
 }
 
 let game = new Phaser.Game(config);
@@ -25,4 +25,5 @@ let policeHeight = 59;
 let policeMargin = (hDivide - policeHeight)/2;
 let truckMargin = (hDivide - truckHeight)/2; 
 let count = 0;
+let musicConfig;
 // comment
