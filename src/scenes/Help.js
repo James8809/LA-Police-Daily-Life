@@ -4,7 +4,6 @@ class Help extends Phaser.Scene{
     }
     
     init() {
-
     }
     preload() {
     }
