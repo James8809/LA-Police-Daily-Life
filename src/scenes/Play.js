@@ -52,8 +52,6 @@ class Play extends Phaser.Scene{
          
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
-        // keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
-        // keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.J);
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
 
         music = this.sound.add('audio_background');

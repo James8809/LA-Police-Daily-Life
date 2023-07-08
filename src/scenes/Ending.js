@@ -29,7 +29,7 @@ class Ending extends Phaser.Scene{
         var camera = this.cameras.main;        
         this.cameras.main.setBackgroundColor('#FA9A75');
         
-        this.add.sprite(w/2,h/2- borderPadding*2,"crash");
+        this.add.sprite(w/2,h/2- borderPadding,"crash");
         // menu text
         let text1 = this.add.text(w/2, borderPadding*3,
             "LA Police Daily Life....", menuConfig).setOrigin(0.5,0);

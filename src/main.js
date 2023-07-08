@@ -14,10 +14,11 @@
 // really add more since we dont have time left. we had a great idea of 
 // having to player chase thief as a police but couldn't finish in time :(
 // oh also we added a kind of funny feature so try to find it if you can haha
+
 let config = {
     type: Phaser.CANVAS,
-    width: 1920,
-    height: 1080,
+    width: 1400,
+    height: 600,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
@@ -31,8 +32,8 @@ let game = new Phaser.Game(config);
 
 let w = game.config.width;
 let h = game.config.height;
-let keyH, keyESC, keyENTER, keyF, keyRight, keyLeft;
-console.log("changeing naming");
+let keyUP, keyDOWN, keyH, keyESC, keyENTER, keyF;
+console.log("changeing");
 let wDivide = w/7;
 let hDivide = h/5;
 let borderUISize = w / 10;
