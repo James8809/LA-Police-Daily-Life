@@ -1,4 +1,4 @@
-// James Liu, Darren Yang, Shimao Zhou, LA Police daily life
+// James Liu, Darren Yang, LA Police daily life
 // we havent really complete it yet so we have to turn in what we have
 // used multiple scene class, transition between scene class
 // have instructions, have player input control
@@ -16,8 +16,8 @@
 // oh also we added a kind of funny feature so try to find it if you can haha
 let config = {
     type: Phaser.CANVAS,
-    width: 1050,
-    height: 600,
+    width: 1920,
+    height: 1080,
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
@@ -31,7 +31,8 @@ let game = new Phaser.Game(config);
 
 let w = game.config.width;
 let h = game.config.height;
-let keyUP, keyDOWN, keyH, keyESC, keyENTER, keyF;
+let keyH, keyESC, keyENTER, keyF, keyRight, keyLeft;
+console.log("changeing naming");
 let wDivide = w/7;
 let hDivide = h/5;
 let borderUISize = w / 10;

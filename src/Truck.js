@@ -7,12 +7,13 @@ class Truck extends Phaser.Physics.Arcade.Sprite {
         this.spawn = false;
         //this.posX = 0;
         //this.posY = 0;
+        // just for testing 
     }
 
     update() {
         this.x -= game.settings.carSpeed;
         
-        if (this.spawn && this.x < w/2) {
+        if (this.spawn && this.x < w/4) {
             this.spawn = false;
             this.scene.addTruck(this.parent);
         }

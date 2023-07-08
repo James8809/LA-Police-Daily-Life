@@ -35,7 +35,6 @@ class Play extends Phaser.Scene{
         this.highway = this.add.tileSprite(0, 0, 3000, 600, 'highway').setOrigin(0, 0);
         this.gameOver = false;
         this.p1Police = new Police(this, 10, 18.5,'police').setOrigin(0,0);
-        //this.p2Police = new Police(this, w/2, truckMargin + 360, 'police').setOrigin(0,0);
         
         this.anims.create({
             key:"police_anim",
@@ -50,10 +49,11 @@ class Play extends Phaser.Scene{
             repeat: -1
         });
         this.p1Police.play('police_anim');
-        //this.p2Police.play('police_anim');
          
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        // keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
+        // keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.J);
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
 
         music = this.sound.add('audio_background');
@@ -76,22 +76,28 @@ class Play extends Phaser.Scene{
         //let front;
     }
     addTruck() {
+        let truckNum = Phaser.Math.Between(1,2);
         let laneChoose =  Phaser.Math.Between(0, 4);
-        let laneChoose2 = Phaser.Math.Between(0, 4);
-        while(laneChoose2 == laneChoose) {
-            laneChoose2 = Phaser.Math.Between(0, 4);
-        } 
+        let laneChoose2 =  Phaser.Math.Between(0, 4);
+
         let truck1 = new Truck(this, w, truckMargin + 120*laneChoose,'truck').setOrigin(0,0);
-        let truck2 = new Truck(this, w, truckMargin + 120*laneChoose2,'truck').setOrigin(0,0);
         truck1.play('truck_anim');
-        truck2.play('truck_anim');
         truck1.spawn = true;
         //truck1.posY = laneChoose*120 + truckMargin;
         //truck2.posY = laneChoose2*120 + truckMargin;
         //truck1.active = true;
         //truck2.active = true;
         this.truckGroup.add(truck1);
-        this.truckGroup.add(truck2);
+        
+        if(truckNum == 2) {
+            while(laneChoose2 == laneChoose) {
+                laneChoose2 = Phaser.Math.Between(0, 4);
+            } 
+            
+            let truck2 = new Truck(this, w, truckMargin + 120*laneChoose2,'truck').setOrigin(0,0);
+            truck2.play('truck_anim');
+            this.truckGroup.add(truck2);
+        }
         //console.log(truck1.posY, truck2.posY);
         
     }
@@ -126,9 +132,10 @@ class Play extends Phaser.Scene{
             }
             */
             count++;
-            if (count % 10 == 0 && game.settings.startSpeed < 30 && game.settings.carSpeed < 100) {
-                game.settings.startSpeed += 0.05;
-                game.settings.carSpeed += 0.02;
+            if (count % 100 == 0 && game.settings.startSpeed < 30 && game.settings.carSpeed < 100) {
+                console.log("speedup");
+                //game.settings.startSpeed += 0.05;
+                game.settings.carSpeed += 0.15;
             }
         }
         if(this.gameOver) {

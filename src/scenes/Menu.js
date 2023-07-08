@@ -51,7 +51,7 @@ class Menu extends Phaser.Scene{
             this.scene.start('playScene');
             game.settings = {
                 startSpeed: 10,
-                carSpeed: 10,
+                carSpeed: 1,
                 fired: false
             }
         }
