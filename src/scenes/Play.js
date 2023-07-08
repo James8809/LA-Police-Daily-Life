@@ -18,7 +18,8 @@ class Play extends Phaser.Scene{
             frameWidth:204.25,
             frameHeight:80,
         });
-        this.load.audio('audio_background', ['assets/background.wav']);
+        this.load.audio('audio_background_engine', ['assets/carEngine.wav']);
+        this.load.audio('audio_police_siren', ['assets/policeSiren.wav']);
         this.load.audio('horn', ['assets/horn.wav'])
     }
     create() {
@@ -54,9 +55,12 @@ class Play extends Phaser.Scene{
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
 
-        music = this.sound.add('audio_background');
-        //music.setLoop(true);
+        music = this.sound.add('audio_background_engine');
+        music2 = this.sound.add('audio_police_siren');
+        music.setLoop(true);
         music.play();
+        music2.setLoop(true);
+        music2.play();
         /*
         musicConfig = {
             mute:false,
@@ -139,6 +143,7 @@ class Play extends Phaser.Scene{
         if(this.gameOver) {
             
             music.stop();
+            music2.stop();
             this.scene.start("endingScene");
         }
     }

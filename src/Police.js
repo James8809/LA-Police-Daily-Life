@@ -5,7 +5,6 @@ class Police extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.moveSpeed = 2;
-        console.log("police spawned");
     }
 
     update() {

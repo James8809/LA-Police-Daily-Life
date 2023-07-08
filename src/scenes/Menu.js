@@ -36,7 +36,6 @@ class Menu extends Phaser.Scene{
         let text3 = this.add.text(w/2, h/2 + borderPadding,
             "Press button H for instructions(Noob!)", menuConfig).setOrigin(0.5,0);
         this.add.sprite(w/2 + 10, h/2 + borderPadding*5, 'car').setOrigin(0.5,0.5);
-        console.log("change4");
         keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
         keyENTER = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
         

@@ -34,16 +34,16 @@ class Ending extends Phaser.Scene{
         let text1 = this.add.text(w/2, borderPadding*3,
             "LA Police Daily Life....", menuConfig).setOrigin(0.5,0);
         let text2 = this.add.text(w/2, h/2 + borderPadding-20,
-            "Unfortunately you have crashed....", menuConfig).setOrigin(0.5,0);
+            "Unfortunately you have crashed however no one was hurt, phew...", menuConfig).setOrigin(0.5,0);
         let text3 = this.add.text(w/2, h/2 + borderPadding*3-20,
-            "The good thing is the thief only stoled a bread!", menuConfig).setOrigin(0.5,0);
+            "The good thing is the thief only stole a bread!", menuConfig).setOrigin(0.5,0);
         if (!game.settings.fired) {
             
             let text4 = this.add.text(w/2, h/2 + borderPadding*5-20,
                 ".......what? ", menuConfig).setOrigin(0.5,0);
         } else{
             let text4 = this.add.text(w/2, h/2 + borderPadding*5-20,
-                "...what?...Oh btw, someone reported you being too noise during  ", menuConfig).setOrigin(0.5,0);
+                "...what?...Oh btw, someone reported you being too loud during  ", menuConfig).setOrigin(0.5,0);
             let text5 = this.add.text(w/2, h/2 + borderPadding*7 -20,
                 "the chase, so your pay is getting a cut... told you not to do it...", menuConfig).setOrigin(0.5,0);
         }

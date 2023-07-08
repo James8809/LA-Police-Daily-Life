@@ -45,3 +45,4 @@ let truckMargin = (hDivide - truckHeight)/2;
 let count = 0;
 let musicConfig;
 let music;
+let music2;

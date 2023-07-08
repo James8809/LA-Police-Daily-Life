@@ -29,7 +29,7 @@ class Help extends Phaser.Scene{
         // menu text
         this.add.text(borderPadding, borderPadding/2,
             "Press ESC button to return to start Menu", menuConfig).setOrigin(0,0);
-        this.add.text(w/2, h/2 - borderUISize*2 + borderPadding/2,
+        this.add.text(w/2, h/2 - borderUISize*2 + borderPadding*1.5,
             "Instructions~", menuConfig).setOrigin(0.5,0);
         this.add.text(w/2, h/2 - borderUISize,
             "Use ↑ arrow to move police car up", menuConfig).setOrigin(0.5,0);
